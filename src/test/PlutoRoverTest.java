@@ -1,6 +1,9 @@
 package test;
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 import source.PlutoRover;
@@ -294,7 +297,7 @@ public class PlutoRoverTest {
 	/*turn left tests req2*/
 	
 	@Test
-	public void turnLeftNorth(){
+	public void testTurnLeftNorth(){
 		PlutoRover rover = new PlutoRover(5, 0, 'N', 40);
 		try {
 			rover.turnLeft();
@@ -307,7 +310,7 @@ public class PlutoRoverTest {
 	}
 	
 	@Test
-	public void turnLeftEast(){
+	public void testTurnLeftEast(){
 		PlutoRover rover = new PlutoRover(5, 0, 'E', 40);
 		try {
 			rover.turnLeft();
@@ -319,7 +322,7 @@ public class PlutoRoverTest {
 	}
 	
 	@Test
-	public void turnLeftSouth(){
+	public void testTurnLeftSouth(){
 		PlutoRover rover = new PlutoRover(5, 0, 'S', 40);
 		try {
 			rover.turnLeft();
@@ -331,7 +334,7 @@ public class PlutoRoverTest {
 	}
 	
 	@Test
-	public void turnLeftWest(){
+	public void testTurnLeftWest(){
 		PlutoRover rover = new PlutoRover(5, 0, 'W', 40);
 		try {
 			rover.turnLeft();
@@ -347,7 +350,7 @@ public class PlutoRoverTest {
 	/*turn right tests req2*/
 	
 	@Test
-	public void turnRightNorth(){
+	public void testTurnRightNorth(){
 		PlutoRover rover = new PlutoRover(5, 0, 'N', 40);
 		try {
 			rover.turnRight();
@@ -359,7 +362,7 @@ public class PlutoRoverTest {
 	}
 	
 	@Test
-	public void turnRightEast(){
+	public void testTurnRightEast(){
 		PlutoRover rover = new PlutoRover(5, 0, 'E', 40);
 		try {
 			rover.turnRight();
@@ -371,7 +374,7 @@ public class PlutoRoverTest {
 	}
 	
 	@Test
-	public void turnRightSouth(){
+	public void testTurnRightSouth(){
 		PlutoRover rover = new PlutoRover(5, 0, 'S', 40);
 		try {
 			rover.turnRight();
@@ -383,7 +386,7 @@ public class PlutoRoverTest {
 	}
 	
 	@Test
-	public void turnRightWest(){
+	public void testTurnRightWest(){
 		PlutoRover rover = new PlutoRover(5, 0, 'W', 40);
 		try {
 			rover.turnRight();
@@ -395,6 +398,52 @@ public class PlutoRoverTest {
 	}
 	
 	
+	/*obstacle detention req4*/
+	@Test
+	public void testCheckObstacleTrue(){
+		PlutoRover rover = new PlutoRover();
+		List<Pair> obstacles = new ArrayList<>();
+		obstacles.put(new Pair(1,1));
+		rover.setMapObstacles(obstacles);
+		assertEquals(true, rover.checkObstacle(1,1));
+	}
 	
+	@Test
+	public void testCheckObstacleFalse(){
+		PlutoRover rover = new PlutoRover();
+		List<Pair> obstacles = new ArrayList<>();
+		obstacles.put(new Pair(1,1));
+		rover.setMapObstacles(obstacles);
+		assertEquals(false, rover.checkObstacle(1,1));
+	}
 	
+	@Test
+	public void testMoveForwardNorthObstacle(){
+		PlutoRover rover = new PlutoRover(1,1,'N', 5);
+		List<Pair> obstacles = new ArrayList<>();
+		obstacles.put(new Pair(1,2));
+		obstacles.put(new Pair(2,1));
+		rover.setMapObstacles(obstacles);
+		try{
+			rover.moveForward();
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		assertEquals("(1,1,N)", rover.getCurrentPosition());
+	}
+	
+	@Test
+	public void testMoveForwardEastObstacle(){
+		PlutoRover rover = new PlutoRover(1,1,'E', 5);
+		List<Pair> obstacles = new ArrayList<>();
+		obstacles.put(new Pair(1,2));
+		obstacles.put(new Pair(2,1));
+		rover.setMapObstacles(obstacles);
+		try{
+			rover.moveForward();
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		assertEquals("(1,1,E)", rover.getCurrentPosition());
+	}
 }
