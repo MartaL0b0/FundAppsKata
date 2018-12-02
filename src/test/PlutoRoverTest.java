@@ -26,6 +26,7 @@ public class PlutoRoverTest {
 		assertEquals(40, rover.getMapSize());
 	}
 	
+	/*
 	@Test
 	public void testInitParametersExceptionNegativeCoord() {
 		try{
@@ -78,4 +79,5 @@ public class PlutoRoverTest {
 	public void testMoveForwardEdgeEW() {
 		
 	}
+	*/
 }
