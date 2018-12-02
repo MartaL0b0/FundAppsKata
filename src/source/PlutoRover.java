@@ -85,18 +85,19 @@ public class PlutoRover {
 	}
 	
 	public void moveForward() throws Exception{
+		int mapSize = getMapSize();
 		switch(getOrientation()){
 			case ('N'):
-					setY_coord(getY_coord() +1);
+					setY_coord(positiveMod((getY_coord() +1), mapSize));
 				break;
 			case ('S'):	
-					setY_coord(getY_coord() -1);
+					setY_coord(positiveMod((getY_coord() -1), mapSize));
 				break;
 			case ('E'):
-					setX_coord(getX_coord() +1);
+					setX_coord(positiveMod((getX_coord() +1), mapSize));
 				break;
 			case ('W'):
-					setX_coord(getX_coord() -1);
+					setX_coord(positiveMod((getX_coord() -1), mapSize));
 				break;
 				
 			default:
@@ -105,25 +106,25 @@ public class PlutoRover {
 		
 	}
 	public void moveBackwards() throws Exception {
-
+		int mapSize = getMapSize();
 		switch(getOrientation()){
 			case ('N'):
 				
-				setY_coord(getY_coord() -1);
+				setY_coord(positiveMod((getY_coord() -1), mapSize));
 				
 				break;
 			case ('S'):	
 				
-				setY_coord(getY_coord() +1);
+				setY_coord(positiveMod((getY_coord() +1), mapSize));
 			
 				break;
 			case ('E'):
 			
-				setX_coord(getX_coord() -1);
+				setX_coord(positiveMod((getX_coord() -1), mapSize));
 				break;
 			case ('W'):
 				
-				setX_coord(getX_coord() +1);
+				setX_coord(positiveMod((getX_coord() +1), mapSize));
 			
 				break;
 				
@@ -173,4 +174,10 @@ public class PlutoRover {
 		}
 	}
 	
+	
+	private int positiveMod(int value, int mod){
+	    return ((value % mod + mod) % mod);
+	}
+
+
 }
