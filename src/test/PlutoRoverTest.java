@@ -79,29 +79,97 @@ public class PlutoRoverTest {
 	@Test
 	public void testMoveForwardNorth() {
 		PlutoRover rover = new PlutoRover(6, 4, 'N', 40);
-		rover.moveForward();
+		try {
+			rover.moveForward();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals("(6,5,N)", rover.getCurrentPosition());
+	}
+	
+	@Test
+	public void testMoveForwardNorthInvalid() {
+		PlutoRover rover = new PlutoRover(6, 40, 'N', 40);
+		try {
+			rover.moveForward();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		assertEquals("(6,40,N)", rover.getCurrentPosition());
 	}
 	
 	@Test
 	public void testMoveForwardSouth() {
 		PlutoRover rover = new PlutoRover(5, 5, 'S', 40);
-		rover.moveForward();
+		try {
+			rover.moveForward();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals("(5,4,S)", rover.getCurrentPosition());
+	}
+	
+	@Test
+	public void testMoveForwardSouthInvalid() {
+		PlutoRover rover = new PlutoRover(5, 0, 'S', 40);
+		try {
+			rover.moveForward();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		assertEquals("(5,0,S)", rover.getCurrentPosition());
 	}
 	
 	@Test
 	public void testMoveForwardEast() {
 		PlutoRover rover = new PlutoRover(5, 5, 'E', 40);
-		rover.moveForward();
+		try {
+			rover.moveForward();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals("(6,5,E)", rover.getCurrentPosition());
+	}
+	
+	@Test
+	public void testMoveForwardEastInvalid() {
+		PlutoRover rover = new PlutoRover(40, 5, 'E', 40);
+		try {
+			rover.moveForward();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		assertEquals("(40,5,E)", rover.getCurrentPosition());
 	}
 	
 	@Test
 	public void testMoveForwardWest() {
 		PlutoRover rover = new PlutoRover(5, 5, 'W', 40);
-		rover.moveForward();
+		try {
+			rover.moveForward();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals("(4,5,W)", rover.getCurrentPosition());
+	}
+	
+	@Test
+	public void testMoveForwardWestInvalid() {
+		PlutoRover rover = new PlutoRover(0, 5, 'W', 40);
+		try {
+			rover.moveForward();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		assertEquals("(0,5,W)", rover.getCurrentPosition());
 	}
 	/*
 	@Test
