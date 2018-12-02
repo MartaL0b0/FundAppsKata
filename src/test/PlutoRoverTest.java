@@ -48,7 +48,7 @@ public class PlutoRoverTest {
 	@Test
 	public void testInitParametersExceptionInvalidSize() {
 		try{
-			PlutoRover rover = new PlutoRover(5, 5, 'M', -20);
+			PlutoRover rover = new PlutoRover(5, 5, 'S', -20);
 		}catch (Exception e){
 			assertEquals("Map size not valid", e.getMessage());
 		}
@@ -57,18 +57,25 @@ public class PlutoRoverTest {
 	@Test
 	public void testInitParametersExceptionMapTooSmall() {
 		try{
-			PlutoRover rover = new PlutoRover(5, 5, 'M', 1);
+			PlutoRover rover = new PlutoRover(5, 5, 'S', 1);
 		}catch (Exception e){
 			assertEquals("Map size not valid", e.getMessage());
 		}
 	}
 	
-	/*
+	
 	@Test
-	public void testCurrentPosition() {
-		
+	public void testCurrentPositionDefault() {
+		PlutoRover rover = new PlutoRover();
+		assertEquals("(0,0,N)", rover.getCurrentPosition());
 	}
 	
+	@Test
+	public void testCurrentPositionCustom() {
+		PlutoRover rover = new PlutoRover(5, 5, 'S', 40);
+		assertEquals("(0,0,N)", rover.getCurrentPosition());
+	}
+	/*
 	@Test
 	public void testMoveForwardNorth() {
 		
