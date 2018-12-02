@@ -73,7 +73,7 @@ public class PlutoRoverTest {
 	@Test
 	public void testCurrentPositionCustom() {
 		PlutoRover rover = new PlutoRover(5, 5, 'S', 40);
-		assertEquals("(0,0,N)", rover.getCurrentPosition());
+		assertEquals("(5,5,S)", rover.getCurrentPosition());
 	}
 	/*
 	@Test
