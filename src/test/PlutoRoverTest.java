@@ -320,27 +320,55 @@ public class PlutoRoverTest {
 		assertEquals("(5,0,S)", rover.getCurrentPosition());
 	}
 	
-	/*
+	
 	@Test
 	public void turnRightNorth(){
-		
+		PlutoRover rover = new PlutoRover(5, 0, 'N', 40);
+		try {
+			rover.turnRight();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		assertEquals("(5,0,E)", rover.getCurrentPosition());
 	}
 	
 	@Test
 	public void turnRightEast(){
-		
+		PlutoRover rover = new PlutoRover(5, 0, 'E', 40);
+		try {
+			rover.turnRight();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		assertEquals("(5,0,S)", rover.getCurrentPosition());
 	}
 	
 	@Test
 	public void turnRightSouth(){
-		
+		PlutoRover rover = new PlutoRover(5, 0, 'S', 40);
+		try {
+			rover.turnRight();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		assertEquals("(5,0,W)", rover.getCurrentPosition());
 	}
 	
 	@Test
 	public void turnRightWest(){
-		
+		PlutoRover rover = new PlutoRover(5, 0, 'W', 40);
+		try {
+			rover.turnRight();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		assertEquals("(5,0,N)", rover.getCurrentPosition());
 	}
-	*/
+	
 	
 	
 	/*
