@@ -270,27 +270,37 @@ public class PlutoRoverTest {
 		assertEquals("(40,5,W)", rover.getCurrentPosition());
 	}
 	
-	/*
+	
 	@Test
 	public void turnLeftNorth(){
+		PlutoRover rover = new PlutoRover(5, 0, 'N', 40);
+		rover.turnLeft();
+		assertEquals("(5,0,W)", rover.getCurrentPosition());
 		
 	}
 	
 	@Test
 	public void turnLeftEast(){
-		
+		PlutoRover rover = new PlutoRover(5, 0, 'E', 40);
+		rover.turnLeft();
+		assertEquals("(5,0,N)", rover.getCurrentPosition());
 	}
 	
 	@Test
 	public void turnLeftSouth(){
-		
+		PlutoRover rover = new PlutoRover(5, 0, 'S', 40);
+		rover.turnLeft();
+		assertEquals("(5,0,E)", rover.getCurrentPosition());
 	}
 	
 	@Test
 	public void turnLeftWest(){
-		
+		PlutoRover rover = new PlutoRover(5, 0, 'W', 40);
+		rover.turnLeft();
+		assertEquals("(5,0,S)", rover.getCurrentPosition());
 	}
 	
+	/*
 	@Test
 	public void turnRightNorth(){
 		
