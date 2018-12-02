@@ -140,5 +140,24 @@ public class PlutoRover {
 		}
 		
 	}
+	public void turnLeft() throws Exception {
+		switch(getOrientation()){
+		case ('N'):
+			setOrientation('W');
+			break;
+		case ('S'):	
+			setOrientation('E');
+			break;
+		case ('E'):
+			setOrientation('N');
+			break;
+		case ('W'):
+			setOrientation('S');
+			break;
+			
+		default:
+			break;
+	}
+	}
 	
 }
