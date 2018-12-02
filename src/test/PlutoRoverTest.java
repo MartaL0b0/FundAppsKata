@@ -402,8 +402,8 @@ public class PlutoRoverTest {
 	@Test
 	public void testCheckObstacleTrue(){
 		PlutoRover rover = new PlutoRover();
-		HashSet<Coordinates> obstacles = new HashSet<>();
-		obstacles.add(new Coordinates(1,1));
+		HashSet<String> obstacles = new HashSet<>();
+		obstacles.add(1+","+1);
 		rover.setObstacles(obstacles);
 		assertEquals(true, rover.checkObstacle(1,1));
 	}
@@ -411,8 +411,8 @@ public class PlutoRoverTest {
 	@Test
 	public void testCheckObstacleFalse(){
 		PlutoRover rover = new PlutoRover();
-		HashSet<Coordinates> obstacles = new HashSet<>();
-		obstacles.add(new Coordinates(1,1));
+		HashSet<String> obstacles = new HashSet<>();
+		obstacles.add(1+","+1);
 		rover.setObstacles(obstacles);
 		assertEquals(false, rover.checkObstacle(2,1));
 	}
@@ -420,9 +420,9 @@ public class PlutoRoverTest {
 	@Test
 	public void testMoveForwardNorthObstacle(){
 		PlutoRover rover = new PlutoRover(1,1,'N', 5);
-		HashSet<Coordinates> obstacles = new HashSet<>();
-		obstacles.add(new Coordinates(1,2));
-		obstacles.add(new Coordinates(2,1));
+		HashSet<String> obstacles = new HashSet<>();
+		obstacles.add(1+","+2);
+		obstacles.add(2+","+1);
 		rover.setObstacles(obstacles);
 		try{
 			rover.moveForward();
@@ -435,9 +435,9 @@ public class PlutoRoverTest {
 	@Test
 	public void testMoveForwardEastObstacle(){
 		PlutoRover rover = new PlutoRover(1,1,'E', 5);
-		HashSet<Coordinates> obstacles = new HashSet<>();
-		obstacles.add(new Coordinates(1,2));
-		obstacles.add(new Coordinates(2,1));
+		HashSet<String> obstacles = new HashSet<>();
+		obstacles.add(1+","+2);
+		obstacles.add(2+","+1);
 		rover.setObstacles(obstacles);
 		try{
 			rover.moveForward();
