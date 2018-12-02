@@ -75,27 +75,35 @@ public class PlutoRoverTest {
 		PlutoRover rover = new PlutoRover(5, 5, 'S', 40);
 		assertEquals("(5,5,S)", rover.getCurrentPosition());
 	}
-	/*
+	
 	@Test
 	public void testMoveForwardNorth() {
-		
+		PlutoRover rover = new PlutoRover(6, 4, 'N', 40);
+		rover.moveForward();
+		assertEquals("(6,5,N)", rover.getCurrentPosition());
 	}
 	
 	@Test
 	public void testMoveForwardSouth() {
-		
+		PlutoRover rover = new PlutoRover(5, 5, 'S', 40);
+		rover.moveForward();
+		assertEquals("(5,4,S)", rover.getCurrentPosition());
 	}
 	
 	@Test
 	public void testMoveForwardEast() {
-		
+		PlutoRover rover = new PlutoRover(5, 5, 'E', 40);
+		rover.moveForward();
+		assertEquals("(6,5,N)", rover.getCurrentPosition());
 	}
 	
 	@Test
 	public void testMoveForwardWest() {
-		
+		PlutoRover rover = new PlutoRover(5, 5, 'W', 40);
+		rover.moveForward();
+		assertEquals("(4,5,N)", rover.getCurrentPosition());
 	}
-	
+	/*
 	@Test
 	public void testMoveForwardEdgeNS() {
 		
@@ -106,4 +114,5 @@ public class PlutoRoverTest {
 		
 	}
 	*/
+	
 }
