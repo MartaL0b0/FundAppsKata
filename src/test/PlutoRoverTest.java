@@ -1,11 +1,11 @@
 package test;
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 
 import org.junit.Test;
 
+import source.Coordinates;
 import source.PlutoRover;
 
 
@@ -402,28 +402,28 @@ public class PlutoRoverTest {
 	@Test
 	public void testCheckObstacleTrue(){
 		PlutoRover rover = new PlutoRover();
-		List<Pair> obstacles = new ArrayList<>();
-		obstacles.put(new Pair(1,1));
-		rover.setMapObstacles(obstacles);
+		HashSet<Coordinates> obstacles = new HashSet<>();
+		obstacles.add(new Coordinates(1,1));
+		rover.setObstacles(obstacles);
 		assertEquals(true, rover.checkObstacle(1,1));
 	}
 	
 	@Test
 	public void testCheckObstacleFalse(){
 		PlutoRover rover = new PlutoRover();
-		List<Pair> obstacles = new ArrayList<>();
-		obstacles.put(new Pair(1,1));
-		rover.setMapObstacles(obstacles);
-		assertEquals(false, rover.checkObstacle(1,1));
+		HashSet<Coordinates> obstacles = new HashSet<>();
+		obstacles.add(new Coordinates(1,1));
+		rover.setObstacles(obstacles);
+		assertEquals(false, rover.checkObstacle(2,1));
 	}
 	
 	@Test
 	public void testMoveForwardNorthObstacle(){
 		PlutoRover rover = new PlutoRover(1,1,'N', 5);
-		List<Pair> obstacles = new ArrayList<>();
-		obstacles.put(new Pair(1,2));
-		obstacles.put(new Pair(2,1));
-		rover.setMapObstacles(obstacles);
+		HashSet<Coordinates> obstacles = new HashSet<>();
+		obstacles.add(new Coordinates(1,2));
+		obstacles.add(new Coordinates(2,1));
+		rover.setObstacles(obstacles);
 		try{
 			rover.moveForward();
 		} catch (Exception e){
@@ -435,10 +435,10 @@ public class PlutoRoverTest {
 	@Test
 	public void testMoveForwardEastObstacle(){
 		PlutoRover rover = new PlutoRover(1,1,'E', 5);
-		List<Pair> obstacles = new ArrayList<>();
-		obstacles.put(new Pair(1,2));
-		obstacles.put(new Pair(2,1));
-		rover.setMapObstacles(obstacles);
+		HashSet<Coordinates> obstacles = new HashSet<>();
+		obstacles.add(new Coordinates(1,2));
+		obstacles.add(new Coordinates(2,1));
+		rover.setObstacles(obstacles);
 		try{
 			rover.moveForward();
 		} catch (Exception e){

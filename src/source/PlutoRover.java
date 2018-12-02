@@ -1,11 +1,14 @@
 package source;
 
+import java.util.HashSet;
+
 public class PlutoRover {
 
 	int x_coord;
 	int y_coord;
 	char orientation;
-	boolean[][] map;
+	int mapSize;
+	HashSet<Coordinates> obstacles;
 	
 	public int getX_coord() {
 		return x_coord;
@@ -38,11 +41,11 @@ public class PlutoRover {
 		}
 	}
 	public int getMapSize() {
-		return map.length;
+		return mapSize;
 	}
 	public void setMapSize(int size) throws Exception {
 		if (size > 1){
-			this.map = new boolean[size][size];
+			this.mapSize = size;
 		} else {
 			throw new Exception("Map size not valid");
 		}
