@@ -77,6 +77,7 @@ public class PlutoRoverTest {
 	}
 	
 	
+	
 	@Test
 	public void testMoveForwardNorth() {
 		PlutoRover rover = new PlutoRover(6, 4, 'N', 40);
@@ -91,14 +92,14 @@ public class PlutoRoverTest {
 	
 	@Test
 	public void testMoveForwardNorthInvalid() {
-		PlutoRover rover = new PlutoRover(6, 40, 'N', 40);
+		PlutoRover rover = new PlutoRover(6, 39, 'N', 40);
 		try {
 			rover.moveForward();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertEquals("(6,40,N)", rover.getCurrentPosition());
+		assertEquals("(6,39,N)", rover.getCurrentPosition());
 	}
 	
 	@Test
@@ -139,14 +140,14 @@ public class PlutoRoverTest {
 	
 	@Test
 	public void testMoveForwardEastInvalid() {
-		PlutoRover rover = new PlutoRover(40, 5, 'E', 40);
+		PlutoRover rover = new PlutoRover(39, 5, 'E', 40);
 		try {
 			rover.moveForward();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertEquals("(40,5,E)", rover.getCurrentPosition());
+		assertEquals("(39,5,E)", rover.getCurrentPosition());
 	}
 	
 	@Test
@@ -212,14 +213,14 @@ public class PlutoRoverTest {
 	
 	@Test
 	public void testMoveBackwardsSouthInvalid() {
-		PlutoRover rover = new PlutoRover(5, 40, 'S', 40);
+		PlutoRover rover = new PlutoRover(5, 39, 'S', 40);
 		try {
 			rover.moveBackwards();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertEquals("(5,40,S)", rover.getCurrentPosition());
+		assertEquals("(5,39,S)", rover.getCurrentPosition());
 	}
 	
 	@Test
@@ -260,14 +261,14 @@ public class PlutoRoverTest {
 	
 	@Test
 	public void testMoveBackwardsWestInvalid() {
-		PlutoRover rover = new PlutoRover(40, 5, 'W', 40);
+		PlutoRover rover = new PlutoRover(39, 5, 'W', 40);
 		try {
 			rover.moveBackwards();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertEquals("(40,5,W)", rover.getCurrentPosition());
+		assertEquals("(39,5,W)", rover.getCurrentPosition());
 	}
 	
 	
@@ -368,19 +369,5 @@ public class PlutoRoverTest {
 		}
 		assertEquals("(5,0,N)", rover.getCurrentPosition());
 	}
-	
-	
-	
-	/*
-	@Test
-	public void testMoveForwardEdgeNS() {
-		
-	}
-	
-	@Test
-	public void testMoveForwardEdgeEW() {
-		
-	}
-	*/
 	
 }

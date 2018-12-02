@@ -11,20 +11,20 @@ public class PlutoRover {
 		return x_coord;
 	}
 	public void setX_coord(int x_coord) throws Exception {
-		if (x_coord >= 0){
+		if (x_coord >= 0 && x_coord < getMapSize()){
 			this.x_coord = x_coord;
 		}else{
-			throw new Exception ("Position cannnot be negative");
+			throw new Exception ("Position cannnot be negative or out of map bounds");
 		}
 	}
 	public int getY_coord() {
 		return y_coord;
 	}
 	public void setY_coord(int y_coord) throws Exception {
-		if (y_coord >= 0){
+		if (y_coord >= 0 && y_coord < getMapSize()){
 			this.y_coord = y_coord;
 		}else{
-			throw new Exception ("Position cannnot be negative");
+			throw new Exception ("Position cannnot be negative or out of map bounds");
 		}
 	}
 	public char getOrientation() {
@@ -52,10 +52,11 @@ public class PlutoRover {
 	public PlutoRover(){
 		
 		try {
+			setMapSize(100);
 			setX_coord(0);
 			setY_coord(0);
 			setOrientation('N');
-			setMapSize(100);
+			
 		} catch (Exception e) {
 			System.out.println("Unable to create PlutoRover. Invalid Parameters");
 			e.printStackTrace();
@@ -64,11 +65,11 @@ public class PlutoRover {
 	}
 	public PlutoRover(int x, int y, char orient, int size) {
 		try{
+			setMapSize(size);
 			setX_coord(x);
 			setY_coord(y);
 			setOrientation(orient);
-			setMapSize(size);
-		}catch (Exception e){
+		} catch (Exception e){
 			System.out.println("Unable to create PlutoRover. Invalid Parameters");
 			e.printStackTrace();
 		}
@@ -86,24 +87,16 @@ public class PlutoRover {
 	public void moveForward() throws Exception{
 		switch(getOrientation()){
 			case ('N'):
-				if (getY_coord()+1 < getMapSize()){
 					setY_coord(getY_coord() +1);
-				}
 				break;
 			case ('S'):	
-				if (getY_coord()-1 < getMapSize()){
 					setY_coord(getY_coord() -1);
-				}
 				break;
 			case ('E'):
-				if (getX_coord()+1 < getMapSize()){
 					setX_coord(getX_coord() +1);
-				}
 				break;
 			case ('W'):
-				if (getX_coord()-1 < getMapSize()){
 					setX_coord(getX_coord() -1);
-				}
 				break;
 				
 			default:
@@ -115,24 +108,23 @@ public class PlutoRover {
 
 		switch(getOrientation()){
 			case ('N'):
-				if (getY_coord()-1 < getMapSize()){
-					setY_coord(getY_coord() -1);
-				}
+				
+				setY_coord(getY_coord() -1);
+				
 				break;
 			case ('S'):	
-				if (getY_coord()+1 < getMapSize()){
-					setY_coord(getY_coord() +1);
-				}
+				
+				setY_coord(getY_coord() +1);
+			
 				break;
 			case ('E'):
-				if (getX_coord()-1 < getMapSize()){
-					setX_coord(getX_coord() -1);
-				}
+			
+				setX_coord(getX_coord() -1);
 				break;
 			case ('W'):
-				if (getX_coord()+1 <= getMapSize()){
-					setX_coord(getX_coord() +1);
-				}
+				
+				setX_coord(getX_coord() +1);
+			
 				break;
 				
 			default:
