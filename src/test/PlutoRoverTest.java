@@ -94,14 +94,14 @@ public class PlutoRoverTest {
 	public void testMoveForwardEast() {
 		PlutoRover rover = new PlutoRover(5, 5, 'E', 40);
 		rover.moveForward();
-		assertEquals("(6,5,N)", rover.getCurrentPosition());
+		assertEquals("(6,5,E)", rover.getCurrentPosition());
 	}
 	
 	@Test
 	public void testMoveForwardWest() {
 		PlutoRover rover = new PlutoRover(5, 5, 'W', 40);
 		rover.moveForward();
-		assertEquals("(4,5,N)", rover.getCurrentPosition());
+		assertEquals("(4,5,W)", rover.getCurrentPosition());
 	}
 	/*
 	@Test
