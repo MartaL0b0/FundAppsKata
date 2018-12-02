@@ -83,4 +83,34 @@ public class PlutoRover {
 		return "(" + x + "," + y + "," + orient + ")";
 	}
 	
+	public void moveForward() throws Exception{
+		
+		switch(getOrientation()){
+			case ('N'):
+				if (getY_coord()+1 < getMapSize()){
+					setY_coord(getY_coord() +1);
+				}
+				break;
+			case ('S'):	
+				if (getY_coord()-1 < getMapSize()){
+					setY_coord(getY_coord() -1);
+				}
+				break;
+			case ('E'):
+				if (getX_coord()+1 < getMapSize()){
+					setX_coord(getX_coord() +1);
+				}
+				break;
+			case ('W'):
+				if (getY_coord()+1 < getMapSize()){
+					setX_coord(getX_coord() -1);
+				}
+				break;
+				
+			default:
+				break;
+		}
+		
+	}
+	
 }
