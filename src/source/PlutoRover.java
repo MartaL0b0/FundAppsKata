@@ -74,5 +74,13 @@ public class PlutoRover {
 		}
 		
 	}
+	public String getCurrentPosition() {
+		//can also be implemented as a PlutoRover.toString() - override
+		int x = getX_coord();
+		int y = getY_coord();
+		char orient = getOrientation();
+		
+		return "(" + x + "," + y + "," + orient + ")";
+	}
 	
 }
