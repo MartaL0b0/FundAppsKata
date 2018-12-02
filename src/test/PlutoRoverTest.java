@@ -274,7 +274,12 @@ public class PlutoRoverTest {
 	@Test
 	public void turnLeftNorth(){
 		PlutoRover rover = new PlutoRover(5, 0, 'N', 40);
-		rover.turnLeft();
+		try {
+			rover.turnLeft();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals("(5,0,W)", rover.getCurrentPosition());
 		
 	}
@@ -282,21 +287,36 @@ public class PlutoRoverTest {
 	@Test
 	public void turnLeftEast(){
 		PlutoRover rover = new PlutoRover(5, 0, 'E', 40);
-		rover.turnLeft();
+		try {
+			rover.turnLeft();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals("(5,0,N)", rover.getCurrentPosition());
 	}
 	
 	@Test
 	public void turnLeftSouth(){
 		PlutoRover rover = new PlutoRover(5, 0, 'S', 40);
-		rover.turnLeft();
+		try {
+			rover.turnLeft();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals("(5,0,E)", rover.getCurrentPosition());
 	}
 	
 	@Test
 	public void turnLeftWest(){
 		PlutoRover rover = new PlutoRover(5, 0, 'W', 40);
-		rover.turnLeft();
+		try {
+			rover.turnLeft();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals("(5,0,S)", rover.getCurrentPosition());
 	}
 	
