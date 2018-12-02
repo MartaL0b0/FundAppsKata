@@ -84,7 +84,6 @@ public class PlutoRover {
 	}
 	
 	public void moveForward() throws Exception{
-		
 		switch(getOrientation()){
 			case ('N'):
 				if (getY_coord()+1 < getMapSize()){
@@ -102,8 +101,37 @@ public class PlutoRover {
 				}
 				break;
 			case ('W'):
-				if (getY_coord()+1 < getMapSize()){
+				if (getX_coord()-1 < getMapSize()){
 					setX_coord(getX_coord() -1);
+				}
+				break;
+				
+			default:
+				break;
+		}
+		
+	}
+	public void moveBackwards() throws Exception {
+
+		switch(getOrientation()){
+			case ('N'):
+				if (getY_coord()-1 < getMapSize()){
+					setY_coord(getY_coord() -1);
+				}
+				break;
+			case ('S'):	
+				if (getY_coord()+1 < getMapSize()){
+					setY_coord(getY_coord() +1);
+				}
+				break;
+			case ('E'):
+				if (getX_coord()-1 < getMapSize()){
+					setX_coord(getX_coord() -1);
+				}
+				break;
+			case ('W'):
+				if (getX_coord()+1 <= getMapSize()){
+					setX_coord(getX_coord() +1);
 				}
 				break;
 				
