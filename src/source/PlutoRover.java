@@ -1,11 +1,14 @@
 package source;
 
+import java.util.HashSet;
+
 public class PlutoRover {
 
 	int x_coord;
 	int y_coord;
 	char orientation;
-	boolean[][] map;
+	int mapSize;
+	HashSet<String> obstacles;
 	
 	public int getX_coord() {
 		return x_coord;
@@ -38,15 +41,27 @@ public class PlutoRover {
 		}
 	}
 	public int getMapSize() {
-		return map.length;
+		return mapSize;
 	}
 	public void setMapSize(int size) throws Exception {
 		if (size > 1){
-			this.map = new boolean[size][size];
+			this.mapSize = size;
 		} else {
 			throw new Exception("Map size not valid");
 		}
 		
+	}
+	public void setObstacles(HashSet<String> obs) {
+		//could check if obstacles are legal or not, but as a set it is not that important.
+		this.obstacles = obs;
+	}
+	
+	public void setObstacles() {
+		//could check if obstacles are legal or not, but as a set it is not that important.
+		this.obstacles = new HashSet<String>();
+	}
+	public HashSet<String> getObstacles(){
+		return obstacles;
 	}
 	
 	public PlutoRover(){
@@ -56,7 +71,7 @@ public class PlutoRover {
 			setX_coord(0);
 			setY_coord(0);
 			setOrientation('N');
-			
+			setObstacles();
 		} catch (Exception e) {
 			System.out.println("Unable to create PlutoRover. Invalid Parameters");
 			e.printStackTrace();
@@ -69,6 +84,7 @@ public class PlutoRover {
 			setX_coord(x);
 			setY_coord(y);
 			setOrientation(orient);
+			setObstacles();
 		} catch (Exception e){
 			System.out.println("Unable to create PlutoRover. Invalid Parameters");
 			e.printStackTrace();
@@ -84,20 +100,39 @@ public class PlutoRover {
 		return "(" + x + "," + y + "," + orient + ")";
 	}
 	
+	public boolean checkObstacle(int x, int y){		
+		return getObstacles().contains(x + "," + y);
+	}
+	
+	
 	public void moveForward() throws Exception{
 		int mapSize = getMapSize();
+		int newCoord = 0;
 		switch(getOrientation()){
 			case ('N'):
-					setY_coord(positiveMod((getY_coord() +1), mapSize));
+				newCoord = positiveMod((getY_coord() +1), mapSize);
+				if (!checkObstacle(getX_coord(), newCoord)){
+					setY_coord(newCoord);
+				}
 				break;
 			case ('S'):	
-					setY_coord(positiveMod((getY_coord() -1), mapSize));
+				newCoord = positiveMod((getY_coord() -1), mapSize);
+				if (!checkObstacle(getX_coord(), newCoord)){
+					System.out.println(newCoord);
+					setY_coord(newCoord);
+				}
 				break;
 			case ('E'):
-					setX_coord(positiveMod((getX_coord() +1), mapSize));
+				newCoord = positiveMod((getX_coord() +1), mapSize);
+				if (!checkObstacle(newCoord, getY_coord())){
+					setX_coord(newCoord);
+				}
 				break;
 			case ('W'):
-					setX_coord(positiveMod((getX_coord() -1), mapSize));
+				newCoord = positiveMod((getX_coord() -1), mapSize);
+				if (!checkObstacle(newCoord, getY_coord())){
+					setX_coord(newCoord);
+				}
 				break;
 				
 			default:
@@ -178,6 +213,7 @@ public class PlutoRover {
 	private int positiveMod(int value, int mod){
 	    return ((value % mod + mod) % mod);
 	}
+	
 
 
 }
